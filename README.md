@@ -58,6 +58,28 @@ Die veröffentlichten Bitstreams wurden mit einer funktionsfähigen Gowin-Instal
 
 ## SD-Karte und USB
 
+### Programmsammlung für die SD-Karte
+
+[**SDCARD.zip herunterladen**](SDCARD.zip?raw=1) – vorbereitete Programmsammlung mit **TBDos Commander**, Z1013-Spielen und weiteren Programmen.
+
+1. `SDCARD.zip` herunterladen und auf dem Computer **entpacken**.
+2. Den **Inhalt des Archivs direkt in das Wurzelverzeichnis einer FAT32-SD-Karte kopieren**. Die Ordnerstruktur beibehalten: `DOS.COM` muss direkt auf der Karte liegen, daneben die Ordner `DOS`, `KCPROG` und `ZGAMES`.
+3. Die Karte in den Z1013 einsetzen und das System starten.
+4. **F3 drücken**, um den **TBDos Commander** zu laden und zu starten.
+5. Im Commander das gewünschte Verzeichnis öffnen, ein Programm auswählen und starten, um es von der SD-Karte auf dem Z1013 auszuführen.
+
+```text
+SD-Karte/
+├── DOS.COM
+├── DOS/       # Kern und Erweiterungsmodule des TBDos Commanders
+├── KCPROG/    # weitere Programme
+└── ZGAMES/    # Spiele und Demos, unter anderem SILKWORM und TETRIS
+```
+
+Entscheidend ist der entpackte Inhalt; ein zusätzliches äußeres Verzeichnis `SDCARD` wird nicht benötigt. F3 lädt `DOS.COM` aus dem Wurzelverzeichnis der Karte. Voraussetzung ist die in diesem Projekt enthaltene Firmware mit F3-/FAT32-Unterstützung.
+
+### Alternative: einzelne mitgelieferte Programme
+
 `sdcard/` enthält eine vorbereitete Dateistruktur. Deren **Inhalt** in das Wurzelverzeichnis einer bereits passenden FAT32-Karte kopieren; eine bestehende funktionierende SD-Karte kann weiterverwendet werden. Es wurde keine SD-Karte verändert.
 
 ```text
@@ -139,5 +161,17 @@ As of 25 October 2026, the Z1013 boots on real hardware and displays the monitor
 - F1 directory, F2 load, F3 start DOS.COM, F4/F5 volume, and F9–F12 CPU speed
 
 Open `z1013_display.gprj` in Gowin EDA and use `z1013_display_top` as the top module. Ready-made FPGA images and their status are documented in [release/README.md](release/README.md). Copy the **contents** of `sdcard/` to the root of an existing FAT32 card. Details about validation, the BL616 companion, third-party components, and rights are available under `docs/`, `bl616/`, and [THIRD_PARTY.md](THIRD_PARTY.md).
+
+### SD-card program collection
+
+[**Download SDCARD.zip**](SDCARD.zip?raw=1) for the prepared collection of **TBDos Commander**, Z1013 games, and additional programs.
+
+1. Download `SDCARD.zip` and **extract it on your computer**.
+2. **Copy the archive contents directly to the root of a FAT32 SD card**, preserving the directory structure. `DOS.COM` must be in the card root, alongside the `DOS`, `KCPROG`, and `ZGAMES` folders.
+3. Insert the card into the Z1013 and start the system.
+4. **Press F3 to load and start TBDos Commander.**
+5. Open the desired directory in the Commander, select a program, and start it to run it from the SD card on the Z1013.
+
+Do not add an enclosing `SDCARD` folder. F3 loads `DOS.COM` from the card root. This requires the project's firmware with F3 and FAT32 support.
 
 I am Tobias Bremer, the developer of this project. More Z80/Z180 projects and documentation are available at [qlb-harz.de/Z80](https://qlb-harz.de/Z80/).
