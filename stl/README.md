@@ -9,6 +9,7 @@ Dieses Verzeichnis enthält die beiden STL-Dateien für das auf dem Foto gezeigt
 - [`Z1013_1.stl`](Z1013_1.stl) – erstes Gehäuseteil
 - [`Z1013_2.stl`](Z1013_2.stl) – zweites Gehäuseteil
 - [`z1013-tang-display.jpg`](z1013-tang-display.jpg) – für GitHub optimiertes Vorschaubild
+- [`z1013-tang-display-innenaufbau.jpg`](z1013-tang-display-innenaufbau.jpg) – Innenansicht mit Display, Tang Nano 20K und Verkabelung
 - [`IMG_0427.MOV`](IMG_0427.MOV) – Video des laufenden Aufbaus, etwa 40 MB
 
 Die STL-Dateien werden in der Orientierung und mit den Einstellungen des jeweils verwendeten Slicers vorbereitet. Materialschrumpfung, Druckertoleranzen und die genaue Displaymontage können Anpassungen erfordern. Vor einem vollständigen Druck empfiehlt sich eine Kontrolle der Abmessungen und Steckerausschnitte im Slicer.
@@ -22,6 +23,7 @@ This directory contains the two STL files for the enclosure shown in the photo, 
 - [`Z1013_1.stl`](Z1013_1.stl) – first enclosure part
 - [`Z1013_2.stl`](Z1013_2.stl) – second enclosure part
 - [`z1013-tang-display.jpg`](z1013-tang-display.jpg) – GitHub-optimized preview image
+- [`z1013-tang-display-innenaufbau.jpg`](z1013-tang-display-innenaufbau.jpg) – internal view showing the display, Tang Nano 20K, and wiring
 - [`IMG_0427.MOV`](IMG_0427.MOV) – video of the running system, approximately 40 MB
 
 Prepare the STL orientation and print settings in the slicer used for your printer. Material shrinkage, printer tolerances, and the exact display mounting may require adjustments. Check dimensions and connector cutouts in the slicer before committing to a complete print.

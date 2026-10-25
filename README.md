@@ -13,6 +13,7 @@ Dies ist meine eigenständige Display-Version des Z1013 für das Tang Nano 20K: 
 ## Foto, Video und Gehäuse
 
 - [Foto des aufgebauten Z1013](stl/z1013-tang-display.jpg)
+- [Foto des Innenaufbaus](stl/z1013-tang-display-innenaufbau.jpg)
 - [Kurzes Video des laufenden Systems](stl/IMG_0427.MOV) – etwa 40 MB
 - [Gehäuseteil 1](stl/Z1013_1.stl)
 - [Gehäuseteil 2](stl/Z1013_2.stl)
@@ -120,6 +121,7 @@ As of 25 October 2026, the Z1013 boots on real hardware and displays the monitor
 ### Media and enclosure
 
 - [Photo of the assembled Z1013](stl/z1013-tang-display.jpg)
+- [Photo of the internal assembly](stl/z1013-tang-display-innenaufbau.jpg)
 - [Short video of the running system](stl/IMG_0427.MOV) – approximately 40 MB
 - [Enclosure part 1](stl/Z1013_1.stl)
 - [Enclosure part 2](stl/Z1013_2.stl)
