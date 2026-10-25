@@ -1,0 +1,69 @@
+# Fremdkomponenten, Lizenzen und Rechtehinweise
+
+Dieses Projekt integriert Fremdkomponenten und historisches Binärmaterial. Ihre Urheberschaft und Lizenz bleiben vollständig erhalten. Ein öffentlich auffindbares Ursprungsrepository ersetzt keine ausdrückliche Lizenz.
+
+## T80 Z80-kompatibler Prozessorkern
+
+- Verzeichnis: `src/t80/`
+- ursprünglicher Autor: Daniel Wallner
+- Ursprung: [OpenCores T80](https://opencores.org/projects/t80/overview)
+- Lizenz: BSD-artige 3-Klausel-Lizenz in den Kopfzeilen und in `src/t80/LICENSE`
+
+Der T80-Kern ist keine Entwicklung dieses Projektautors; er wurde als unveränderter Prozessorkern integriert. Die Lizenz verlangt bei synthetisierten Formen die Wiedergabe von Copyright-Hinweis, Bedingungen und Haftungsausschluss in der Dokumentation oder in anderem Begleitmaterial. Deshalb muss `src/t80/LICENSE` auch mit Bitstream-Veröffentlichungen ausgeliefert werden.
+
+## Klangkern und Audio
+
+- Verzeichnis: `src/hdmi_audio/`
+- Ursprung: [hdl-util/hdmi](https://github.com/hdl-util/hdmi), Copyright 2019 Sameer Puri und Mitwirkende
+- Lizenzwahl für diese Distribution: MIT
+- vollständige Texte: `src/hdmi_audio/LICENSE-MIT` und `src/hdmi_audio/LICENSE-APACHE`
+
+Aus dem früheren HDMI-Projekt bleiben Lizenztexte und der projektspezifisch weiterentwickelte Klangkern `ted_sound_core.sv` erhalten. Die Bildausgabe dieses Projekts verwendet kein HDMI; `i2s_audio_tx.sv` führt den Ton zum Onboard-Audioausgang des Tang Nano 20K.
+
+## Sipeed-LCD-Beispiel und Gowin-IP
+
+Anschlussbelegung und LCD-Timing beruhen auf dem öffentlichen [Sipeed Tang Nano 20K RGB-LCD-Beispiel](https://github.com/sipeed/TangNano-20K-example/tree/main/rgb_lcd/lcd_480_272). Gowin-generierte IP und Projektbestandteile behalten ihre vorhandenen Herstellerhinweise. Dazu gehören insbesondere:
+
+- `src/gowin_rpll/TMDS_rPLL.v`: PLL-Instanz aus dem früheren Projekt
+- `src/gowin_rpll/lcd_rpll.v`: PLL für den LCD-Pixeltakt
+- `src/display.cst` und `src/display.sdc`: projektspezifische Anschluss- und Timingvorgaben
+- `src/gowin_rom/gowin_z1013_rom.vhd`: mit Gowin EDA erzeugte ROM-IP, Copyright Gowin Semiconductor, „All rights reserved“
+
+Im Stamm des überprüften Sipeed-Beispielrepositorys wurde keine allgemeine Lizenz gefunden. Die betreffenden Dateien behalten deshalb ihre vorhandenen Gowin-Copyright-Hinweise und werden hier nicht als eigene Entwicklung ausgegeben. Dieses Projekt beansprucht für sie keine zusätzlichen Nutzungsrechte.
+
+## FPGA-Companion für BL616
+
+- Binärdatei: `companion/companion_z1013_v3923.bin`
+- Referenzpatch und Lizenz: `bl616/source/`
+- Ursprung: [MiSTle-Dev/FPGA-Companion](https://github.com/MiSTle-Dev/FPGA-Companion)
+- Lizenz laut Ursprung: Apache-2.0
+
+Die BL616-Companion-Firmware wurde für die USB-Tastaturanbindung dieses Projekts angepasst. Der Patch deaktiviert den OSD-Hotkey, sendet beim Abziehen einer USB-Tastatur ein Freigabeereignis und reduziert die SPI-Frequenzanforderung für die v3923-Belegung. Die Datei `companion_z1013.patch` dokumentiert die Änderungen gegenüber dem ursprünglichen FPGA-Companion-Quellstand.
+
+## Historisches Z1013-ROM und Zeichensatz von Robotron
+
+- Boot-ROM und Zeichengenerator stammen von Robotron aus der DDR. Die historischen Daten sind derzeit über öffentlich zugängliche Quellen im Internet frei abrufbar.
+- `src/gowin_rom/z1013_boot_rom.bin` enthält wiederhergestellte historische Monitor-, `COMMAND.COM`- und weitere ROM-Inhalte von Robotron sowie projektspezifische FAT32-Erweiterungen.
+- `src/gowin_rom/gowin_z1013_rom.vhd` bettet diese Daten in VHDL-Initialisierungswerte ein.
+- `src/font_rom.vhd` enthält den originalen Z1013-Zeichengenerator von Robotron aus `Z1013.bin`.
+- Die Bitstreams unter `release/` enthalten diese Bestandteile in synthetisierter Form.
+
+Öffentlich zugängliche Archivnachweise sind beispielsweise die [Z1013-Software-Datenbank](https://www.z1013.mrboot.de/software-database/db/index.html) mit dem Robotron-Monitor 2.02 sowie das [Z1013-ROM-Archiv bei Planet Emulation](https://www.planetemu.net/rom/mame-roms/z1013), das unter anderem `mon_202.bin` und `z1013font.bin` aufführt. Diese Links belegen die öffentliche Verfügbarkeit, aber nicht zwingend die Herkunft exakt der im Projekt verwendeten Binärdatei.
+
+Die freie Zugänglichkeit im Internet belegt die Herkunft und praktische Verfügbarkeit, ist aber nicht automatisch mit einer ausdrücklichen Lizenz zur Weiterverbreitung gleichzusetzen. Eine solche Lizenz oder Freigabe ist im Repository derzeit nicht dokumentiert. Das historische Material bleibt Robotron beziehungsweise möglichen Rechtsnachfolgern zugeordnet; dieses Projekt beansprucht daran weder Urheberschaft noch zusätzliche Nutzungsrechte.
+
+## Programme PACMAN, KIKSTART und PUNIVERS
+
+Copyright © Tobias Bremer.
+
+Die Programme in `programs/PACMAN/`, `programs/KIKSTART/` und `programs/PUNIVERS/` stammen vollständig von Tobias Bremer. Dies umfasst Programmcode, Darstellung, Grafik, Sound, Leveldaten und Ausführung. Es wurden keine Programmteile, Grafiken oder Sounddaten aus den historischen Spielen übernommen. Die Programme wurden eigens für den Z1013 neu entwickelt und sind in Spielidee und Bezeichnung lediglich an historische Programme angelehnt.
+
+Die Namen PACMAN und KIKSTART dienen der Beschreibung dieser Neuimplementierungen. Das Projekt ist nicht mit den ursprünglichen Rechteinhabern verbunden und wird von ihnen nicht unterstützt. Der Lizenzstatus dieser Eigenentwicklungen richtet sich nach `LICENSE.md`; weitere Angaben stehen in `programs/README.md`.
+
+## Projektspezifische Werkzeuge und Firmware
+
+Die FAT32-Firmware, die Z1013-Integration, der Klangkern und `tools/at-ds/` besitzen derzeit nur den eingeschränkten Lizenzstatus aus `LICENSE.md`. Die beiden vorkompilierten `@DS`-Programme wurden gegen die dortigen Prüfsummen kontrolliert; die Reproduzierbarkeit aus `tools/at-ds/src/at_ds.c` sollte vor einem Release zusätzlich auf beiden Zielplattformen dokumentiert werden.
+
+## Concept-Demo / DEMO.COM
+
+`programs/DEMO/DEMO.COM` ist die Z1013-Umsetzung des lokalen Concept-Demos. Die Musikdaten wurden aus der Musik des Amiga-Intros „3D Editor Intro“ von Concept (1990) umgesetzt; [Demozoo](https://demozoo.org/productions/229393/) nennt Zzzax als Musiker und Performer für Code, Grafik und Text des Originals. Für diese Musik wird keine eigene Urheberschaft oder zusätzliche Lizenz beansprucht. Weitere Angaben stehen in [programs/DEMO/README.md](programs/DEMO/README.md).

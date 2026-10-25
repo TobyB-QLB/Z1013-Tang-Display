@@ -1,0 +1,15 @@
+create_clock -name I_clk -period 37.037 [get_ports {I_clk}]
+create_clock -name sys_clk -period 30.303 [get_pins {system_div/CLKOUT}]
+create_clock -name lcd_clk -period 111.111 [get_pins {display_pll/rpll_inst/CLKOUT}]
+create_generated_clock -name lcd_pin_clk -source [get_pins {display_pll/rpll_inst/CLKOUT}] -divide_by 1 -invert [get_ports {LCD_CLK}]
+# Allow 10 ns panel setup, 5 ns hold. Validate against the exact panel datasheet.
+set_output_delay -clock lcd_pin_clk -max 10 [get_ports {LCD_R[*] LCD_G[*] LCD_B[*] LCD_DEN LCD_HS LCD_VS}]
+set_output_delay -clock lcd_pin_clk -min -5 [get_ports {LCD_R[*] LCD_G[*] LCD_B[*] LCD_DEN LCD_HS LCD_VS}]
+create_clock -name usb_spi_clk -period 50 [get_ports {I_usb_sclk}]
+set_input_delay -clock usb_spi_clk -max 5 [get_ports {I_usb_mosi}]
+set_input_delay -clock usb_spi_clk -min 0 [get_ports {I_usb_mosi}]
+set_output_delay -clock usb_spi_clk -clock_fall -max 5 [get_ports {O_usb_miso}]
+set_output_delay -clock usb_spi_clk -clock_fall -min 0 [get_ports {O_usb_miso}]
+# Only dual-port VRAM/color RAM and two-flop mode synchronizers cross to LCD.
+set_clock_groups -asynchronous -group [get_clocks {sys_clk}] -group [get_clocks {lcd_clk lcd_pin_clk}] -group [get_clocks {usb_spi_clk}]
+set_false_path -from [get_ports {I_usb_cs_n I_rst}]

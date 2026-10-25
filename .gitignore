@@ -1,0 +1,8 @@
+impl/*
+!impl/z1013_display_process_config.json
+*.gprj.user
+tests/build/
+.DS_Store
+backups/
+*.log
+stl/*.HEIC
